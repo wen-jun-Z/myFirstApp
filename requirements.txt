@@ -9,3 +9,4 @@ einops
 timm
 hub-sdk
 py-cpuinfo
+numpy
