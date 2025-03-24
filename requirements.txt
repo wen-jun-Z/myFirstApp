@@ -1,7 +1,7 @@
-torch
-torchvision
 opencv-python-headless
 psutil
 matplotlib
 pyyaml
 tqdm
+torch
+torchvision
