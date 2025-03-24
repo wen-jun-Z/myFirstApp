@@ -2,4 +2,4 @@ torch==2.2.2
 opencv-python-headless
 psutil
 matplotlib
-yaml
+pyyaml
