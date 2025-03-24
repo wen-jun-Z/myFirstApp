@@ -80,4 +80,4 @@ if uploaded_files:
                 key=f"download_{i}"  # 确保 key 唯一，避免 StreamlitDuplicateElementId 错误
             )
 
-st.sidebar.info("💡 **使用提示**\n- 上传 CT 图片（可多张）\n- 调整置信度阈值\n- 下载带标注的检测结果")
+st.sidebar.info("💡 **Usage tips**\n- Upload images(multiple images are supported)\n- Adjust the confidence threshold\n- Download the annotated detection results")
