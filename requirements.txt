@@ -9,4 +9,4 @@ einops
 timm
 hub-sdk
 py-cpuinfo
-numpy
+numpy==1.23.5
