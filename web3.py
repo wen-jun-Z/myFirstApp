@@ -6,7 +6,7 @@ from PIL import Image
 from ultralytics import YOLO
 import sys
 
-sys.path.append("D:\YOLO_E\Streamlit")  # 确保 biformer.py 在这个路径下
+# sys.path.append("D:\YOLO_E\Streamlit")  # 确保 biformer.py 在这个路径下
 # streamlit run D:\YOLO_E\Streamlit\web3.py
 # 加载 YOLO 模型
 model = YOLO(r"best.pt", task="detect")
