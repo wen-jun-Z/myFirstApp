@@ -9,7 +9,7 @@ import sys
 # sys.path.append("D:\YOLO_E\Streamlit")  # 确保 biformer.py 在这个路径下
 # streamlit run D:\YOLO_E\Streamlit\web3.py
 # 加载 YOLO 模型
-model = YOLO(r"best.pt", task="detect")
+model = YOLO("best.pt", task="detect")
 
 # Streamlit 页面设置
 st.set_page_config(page_title="YOLOv8-BCD 肺部结节检测", layout="wide")
