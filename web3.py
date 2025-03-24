@@ -12,20 +12,20 @@ import sys
 model = YOLO("best.pt", task="detect")
 
 # Streamlit 页面设置
-st.set_page_config(page_title="YOLOv8-BCD 肺部结节检测", layout="wide")
-st.title("🩺 YOLOv8-BCD 肺部结节检测系统")
-st.write("**上传 CT 图片，模型将自动检测肺部结节，并提供检测框和置信度信息。**")
+st.set_page_config(page_title="YOLOv8-BCD for lung nodule detection", layout="wide")
+st.title("🩺 YOLOv8-BCD-based Lung Nodule Detection System")
+st.write("**Upload CT images, and the model will automatically detect lung nodules, providing bounding boxes and confidence level information.**")
 
 # 侧边栏参数
 st.sidebar.header("🔧 Setting")
-conf_threshold = st.sidebar.slider("置信度阈值", 0.1, 1.0, 0.5, 0.05)
+conf_threshold = st.sidebar.slider("Confidence threshold", 0.1, 1.0, 0.25, 0.05)
 
 # **支持多张图片上传**
-uploaded_files = st.file_uploader("📂 上传图片（支持多张）", type=["jpg", "jpeg", "png"], accept_multiple_files=True)
+uploaded_files = st.file_uploader("📂 Upload images (multiple images are supported).", type=["jpg", "jpeg", "png"], accept_multiple_files=True)
 
 if uploaded_files:
     for i, uploaded_file in enumerate(uploaded_files):
-        st.subheader(f"📷 处理文件：{uploaded_file.name}")
+        st.subheader(f"📷 Process files：{uploaded_file.name}")
 
         # 读取图片
         image = Image.open(uploaded_file)
@@ -58,14 +58,14 @@ if uploaded_files:
         result_image = Image.fromarray(image_rgb)
 
         # **显示检测结果**
-        st.image(result_image, caption=f"📊 {uploaded_file.name} 的检测结果", use_container_width=True)
+        st.image(result_image, caption=f"📊 The detection results of {uploaded_file.name}", use_container_width=True)
 
         # **显示检测框数据**
         if detections:
-            st.write("🔍 **检测结果（表格）**")
+            st.write("🔍 **Detection results(table)**")
             st.dataframe(detections)
         else:
-            st.warning(f"⚠️ {uploaded_file.name} 没有检测到结节，请尝试调整置信度阈值或上传其他图像。")
+            st.warning(f"⚠️ {uploaded_file.name} No nodules were detected. Please try adjusting the confidence threshold or uploading other images.")
 
         # **保存检测结果**
         result_image.save(f"detection_result_{i}.png")
@@ -73,7 +73,7 @@ if uploaded_files:
         # **提供下载按钮**
         with open(f"detection_result_{i}.png", "rb") as file:
             st.download_button(
-                label=f"📸 下载 {uploaded_file.name} 的检测结果",
+                label=f"📸 Download the result of {uploaded_file.name} ",
                 data=file,
                 file_name=f"detection_result_{uploaded_file.name}.png",
                 mime="image/png",
