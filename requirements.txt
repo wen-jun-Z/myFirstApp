@@ -7,3 +7,4 @@ torch
 torchvision
 einops
 timm
+hub_sdk
