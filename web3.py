@@ -51,7 +51,7 @@ if uploaded_files:
             cv2.rectangle(image_cv, (x1, y1), (x2, y2), (0, 255, 0), 2)
             cv2.putText(image_cv, label, (x1, y1 - 10), cv2.FONT_HERSHEY_SIMPLEX, 0.6, (0, 255, 0), 2)
 
-            detections.append({"X1": x1, "Y1": y1, "X2": x2, "Y2": y2, "置信度": conf})
+            detections.append({"X1": x1, "Y1": y1, "X2": x2, "Y2": y2, "confidence": conf})
 
         # 转换回 RGB 以适应 Streamlit 显示
         image_rgb = cv2.cvtColor(image_cv, cv2.COLOR_BGR2RGB)
